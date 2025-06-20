@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8080:8080"
+    networks: [appnet]
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    depends_on: [backend]
+    ports:
+      - "3000:80"
+    networks: [appnet]
+
+networks:
+  appnet: {}
+
+volumes:
+  db_data: {}

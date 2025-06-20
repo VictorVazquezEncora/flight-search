@@ -1,0 +1,36 @@
+logging:
+  level:
+    root: INFO
+    com.encora.victorvazquez.flights_search: DEBUG
+    com.encora.victorvazquez.flights_search.config: INFO
+    org.springframework.web.reactive.function.client.ExchangeFunctions: DEBUG
+    org.springframework.boot.context.config: TRACE
+    org.springframework.beans.factory.support: DEBUG
+    org.springframework.web: DEBUG
+    reactor.netty: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+spring:
+  application:
+    name: flights-search
+  main:
+    web-application-type: reactive
+
+server:
+  port: ${PORT:8080}
+
+amadeus:
+  api:
+    key: "ox0kL1Y6Vah6VDqy8KCK7UdKs4DCmkxF"
+    secret: "2pqNQ0ow24Xr8t7B"
+    base-url: "https://test.api.amadeus.com"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
