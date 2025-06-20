@@ -160,7 +160,6 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 
 ### Backend
 * **Spring WebFlux** (non-blocking) for high concurrency.
-* Resilience4j retry / circuit-breaker integration (`ResilienceConfig.java`).
 * Centralised error handling (`GlobalExceptionHandler`).
 * External API integration via WebClient with token caching.
 
@@ -175,9 +174,9 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 
 ## Tech Stack
 
-* **Backend**: Spring Boot 3 • WebFlux • GraalVM-ready build • Resilience4j
+* **Backend**: Spring Boot 3 • WebFlux • GraalVM-ready build
 * **Build**: Gradle 8 (wrapper) • JDK 17
-* **Frontend**: React 18 • TypeScript 5 • Vite 5 • TailwindCSS 3 • shadcn/ui • React Router 6 • Jest + Testing Library
+* **Frontend**: React 18 • TypeScript 5 • Vite 5 • TailwindCSS 3 • shadcn/ui • React Router 6
 * **Containerisation**: Multi-stage Dockerfiles • Nginx static serving • Docker Compose networking
 
 ---
