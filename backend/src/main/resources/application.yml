@@ -22,8 +22,8 @@ server:
 
 amadeus:
   api:
-    key: "ox0kL1Y6Vah6VDqy8KCK7UdKs4DCmkxF"
-    secret: "2pqNQ0ow24Xr8t7B"
+    key: "PUT YOUR KEY HERE"
+    secret: "PUT YOUR SECRET HERE"
     base-url: "https://test.api.amadeus.com"
 
 management:
