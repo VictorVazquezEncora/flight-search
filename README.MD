@@ -22,13 +22,11 @@
 5. [Running Locally (without Docker)](#running-locally-without-docker)
    1. [Backend](#backend)
    2. [Frontend](#frontend)
-6. [Tests](#tests)
-7. [API Endpoints](#api-endpoints)
-8. [Features](#features)
-9. [Architecture](#architecture)
-10. [Tech Stack](#tech-stack)
-11. [Security Notes](#security-notes)
-12. [License](#license)
+6. [API Endpoints](#api-endpoints)
+7. [Features](#features)
+8. [Architecture](#architecture)
+9. [Tech Stack](#tech-stack)
+10. [Security Notes](#security-notes)
 
 ---
 
