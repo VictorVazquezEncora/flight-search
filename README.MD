@@ -168,23 +168,8 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 
 ## Architecture
 
-```mermaid
-flowchart TD
-  subgraph Frontend [React SPA]
-    A[Components] --> B[Context & Hooks]
-    B --> C[Services (fetch)]
-  end
-
-  subgraph Backend [Spring Boot]
-    D[Controller] --> E[Service]
-    E --> F[AmadeusClient]
-  end
-
-  C -- REST --> D
-```
-
 * **Frontend** follows a feature-based directory layout for scalability.
-* **Backend** uses a classic layered approach (controller → service → client).
+* **Backend** uses a classic layered approach (controller → service → client) with some Hexagonal Architecture principles with use of Ports and Adapters.
 
 ---
 
