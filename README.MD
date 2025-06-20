@@ -65,11 +65,20 @@ flights-search/
 
 The backend needs an **Amadeus API key and secret**. They are supplied through environment variables and are **never** committed to the repository.
 
-Create a `.env` file in the project root (same level as `docker-compose.yml`) with the following content:
+Create a `.env` file in the project frontend folder with the following content:
 
 ```dotenv
-AMADEUS_API_KEY=your_amadeus_key
-AMADEUS_API_SECRET=your_amadeus_secret
+VITE_DEVELOP_API=
+```
+
+Create the `application.yml` file in the project backend folder with the following content:
+
+```application
+amadeus:
+  api:
+    key: "YOUR KEY HERE"
+    secret: "YOUR SECRET HERE"
+    base-url: "https://test.api.amadeus.com"
 ```
 
 Docker Compose automatically picks up variables from this file and passes them to the backend container. In local development without Docker you still need to export the same variables to your shell/session.
@@ -84,7 +93,7 @@ $ git clone https://github.com/your-user/flights-search.git
 $ cd flights-search
 
 # 2. Add your credentials
-$ cp .env.example .env     # then edit .env with your key & secret
+$ cp .env.example .env     # then edit .env with your API
 $ add your key and secret to application.yml
 
 # 3. Build and start everything
@@ -130,19 +139,6 @@ $ npm run dev          # starts Vite on http://localhost:5173
 
 The dev server proxies requests beginning with `/api` to `http://localhost:8080`, so you get a seamless local workflow.
 
----
-
-## Tests
-
-| Layer     | Command                     |
-|-----------|-----------------------------|
-| Backend   | `./gradlew test`            |
-| Frontend  | `npm run test`              |
-
-CI pipelines should run both commands to keep quality high.
-
----
-
 ## API Endpoints
 
 The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.java`). The main routes are:
@@ -150,7 +146,6 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 | Method | Path                    | Description                       |
 |--------|-------------------------|-----------------------------------|
 | GET    | `/api/locations`        | Autocomplete IATA codes           |
-| GET    | `/api/locations/{iata}` | Fetch single location             |
 | POST   | `/api/flight-offers`    | Retrieve flight offers (payload: search parameters) |
 
 > The exact DTOs are defined under `backend/src/main/java/.../dto`.
