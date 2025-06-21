@@ -1,6 +1,6 @@
 # Flights Search – Full-Stack Application
 
-> A production-ready flight search platform built with **Spring Boot (Reactive)** in the backend and **React + TypeScript** in the frontend. The application consumes the [Amadeus Flight Offers API](https://developers.amadeus.com/) to provide real-time flight information and is fully containerised with Docker.
+> A flight search platform built with **Spring Boot (Reactive)** in the backend and **React + TypeScript** in the frontend. The application consumes the [Amadeus Flight Offers API](https://developers.amadeus.com/) to provide real-time flight information and is fully containerised with Docker.
 
 <p align="center">
   <img alt="Java" src="https://img.shields.io/badge/Java-17-orange" />
@@ -144,7 +144,7 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 | Method | Path                    | Description                       |
 |--------|-------------------------|-----------------------------------|
 | GET    | `/api/locations`        | Autocomplete IATA codes           |
-| POST   | `/api/flight-offers`    | Retrieve flight offers (payload: search parameters) |
+| GET    | `/api/flight-offers`    | Retrieve flight offers (payload: search parameters) |
 
 > The exact DTOs are defined under `backend/src/main/java/.../dto`.
 
@@ -168,7 +168,7 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 ## Architecture
 
 * **Frontend** follows a feature-based directory layout for scalability.
-* **Backend** uses a classic layered approach (controller → service → client) with some Hexagonal Architecture principles with use of Ports and Adapters.
+* **Backend** uses a classic layered approach (controller → service → client) with some Hexagonal Architecture principles with the use of Ports and Adapters.
 
 ---
 
@@ -185,5 +185,4 @@ The backend exposes a minimal REST API under the prefix `/api` (see `WebConfig.j
 
 * Secrets **never** live inside `application.yml`. Values are read from **environment variables**.
 * `.env` files are excluded via `.gitignore` & `.dockerignore`.
-* Docker Compose passes secrets only at runtime; images remain clean.
 * Consider Docker Secrets or HashiCorp Vault for production deployments.
