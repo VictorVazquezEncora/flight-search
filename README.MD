@@ -66,7 +66,7 @@ The backend needs an **Amadeus API key and secret**. They are supplied through e
 Create a `.env` file in the project frontend folder with the following content:
 
 ```dotenv
-VITE_DEVELOP_API=
+VITE_DEVELOP_API=http://localhost:8080
 ```
 
 Create the `application.yml` file in the project backend folder with the following content:
